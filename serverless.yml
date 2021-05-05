@@ -1,0 +1,29 @@
+service: aws-node-express-api
+
+frameworkVersion: '2'
+
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  lambdaHashingVersion: '20201221'
+  region: ap-southeast-2
+
+functions:
+  api:
+    handler: dist/index.handler
+    events:
+      - http:
+          path: /
+          method: ANY
+      - http:
+          path: /{proxy+}
+          method: ANY
+
+plugins:
+  - serverless-offline
+
+package:
+  exclude:
+    - .gitignore
+    - README.md

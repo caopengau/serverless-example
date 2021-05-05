@@ -1,0 +1,20 @@
+{
+  "name": "aws-node-express-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "tsc-watch --onSuccess \"sls offline\""
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "serverless-http": "^2.7.0"
+  },
+  "devDependencies": {
+    "serverless": "^2.39.2",
+    "serverless-offline": "^7.0.0",
+    "tsc-watch": "^4.2.9",
+    "tslint": "^6.1.3",
+    "typescript": "^4.2.4"
+  }
+}

@@ -1,22 +1,23 @@
-const express = require("express");
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import express from "express";
 
 const app = express();
-
-app.get("", (req: any, res: any, next: any) => {
+app.get("", (_req: any, res: any, _next: any) => {
   return res.status(200).json({
-    message: "Hello from root!",
+    message: "Hello from root!"
   });
 });
 
-app.get("/hello", (req: any, res: any, next: any) => {
+app.get("/hello", (_req: any, res: any, _next: any) => {
   return res.status(200).json({
-    message: "Hello from path!",
+    message: "Hello from path!"
   });
 });
 
-app.use((req: any, res: any, next: any) => {
+app.use((_req: any, res: any, _next: any) => {
   return res.status(404).json({
-    error: "Not Found",
+    error: "Not Found"
   });
 });
 

@@ -15,10 +15,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const serverless_http_1 = __importDefault(require("serverless-http"));
 const app_1 = __importDefault(require("./src/app"));
 const handler = serverless_http_1.default(app_1.default);
-module.exports.handler = (event, context) => __awaiter(void 0, void 0, void 0, function* () {
+exports.handler = (event, context) => __awaiter(void 0, void 0, void 0, function* () {
     // you can do other things here
     const result = yield handler(event, context);
     // and here
     return result;
 });
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=express-handler.js.map

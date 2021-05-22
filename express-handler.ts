@@ -7,7 +7,7 @@ import serverless from "serverless-http";
 import app from "./src/app";
 
 const handler = serverless(app);
-module.exports.handler = async (
+exports.handler = async (
   event: APIGatewayProxyEvent | APIGatewayProxyEventV2,
   context: Context
 ) => {

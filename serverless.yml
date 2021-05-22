@@ -9,8 +9,8 @@ provider:
   region: ap-southeast-2
 
 functions:
-  api:
-    handler: dist/index.handler
+  express:
+    handler: dist/express-handler.handler
     events:
       - http:
           path: /
@@ -18,9 +18,27 @@ functions:
       - http:
           path: /{proxy+}
           method: ANY
+  graphql:
+    handler: dist/apollo-handler.graphqlHandler
+    events:
+      - http:
+          path: /
+          method: post
+          cors: true
+  playground:
+    handler: dist/apollo-handler.playgroundHandler
+    events:
+      - http:
+          path: /
+          method: get
+          cors: true
 
 plugins:
   - serverless-offline
+
+custom:
+  serverless-offline:
+    noPrependStageInUrl: true
 
 package:
   exclude:

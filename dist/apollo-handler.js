@@ -7,5 +7,5 @@ require("reflect-metadata");
 const graphql_playground_middleware_lambda_1 = __importDefault(require("graphql-playground-middleware-lambda"));
 const apolloServer_1 = require("./src/apolloServer");
 exports.graphqlHandler = apolloServer_1.server.createHandler();
-exports.playgroundHandler = graphql_playground_middleware_lambda_1.default({ endpoint: "" });
+exports.playgroundHandler = graphql_playground_middleware_lambda_1.default({ endpoint: "/graphql" });
 //# sourceMappingURL=apollo-handler.js.map

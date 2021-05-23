@@ -1,0 +1,62 @@
+#!/bin/bash
+
+# enabling CTRL-C in an loop
+trap "exit 1" SIGINT SIGTERM
+
+CONTAINER_NAME="mongodb_container"
+
+function get_container_id() {
+    echo "=================== getting container id:"
+    eval docker ps -qa -f name="$CONTAINER_NAME"
+}
+
+function remove_db {
+    echo "=================== removing previous db container"
+    CONTAINER_ID=$(docker ps -qa -f name="$CONTAINER_NAME")
+    if [[ $CONTAINER_ID != "" ]] ; then
+        docker rm -f $CONTAINER_ID
+    fi
+}
+
+function start_db {
+    echo "=================== starting new db container" \
+    && docker compose -f docker-compose.yml up -d "$CONTAINER_NAME"
+}
+
+function go_into_db_container {
+    CONTAINER_ID=$(docker ps -qa -f name="$CONTAINER_NAME")
+    echo "=================== going inside db container $CONTAINER_ID" && \
+    docker exec -it $CONTAINER_ID bash
+}
+
+function go_into_db_shell {
+    CONTAINER_ID=$(docker ps -qa -f name="$CONTAINER_NAME")
+    echo "=================== going inside db container $CONTAINER_ID" && \
+    docker exec -it $CONTAINER_ID bash -c "mongo mongodb://localhost:27017/devdb"
+}
+
+function seed_db {
+    CONTAINER_ID=$(docker ps -qa -f name="$CONTAINER_NAME")
+    echo "=================== seeding db $CONTAINER_ID" && \
+    docker exec -it $CONTAINER_ID bash mongodb-seeding/inject.sh
+}
+
+if [[ $1 == "start" ]]; then
+    start_db && yarn start
+fi
+
+if [[ $1 == "clean" ]]; then
+    remove_db
+fi
+
+if [[ $1 == "dev" ]]; then
+    go_into_db_container
+fi
+
+if [[ $1 == "dev:data" ]]; then
+    go_into_db_shell
+fi
+
+if [[ $1 == "seed" ]]; then
+    seed_db
+fi

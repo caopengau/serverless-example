@@ -4,9 +4,9 @@ import {
   Context
 } from "aws-lambda";
 import serverless from "serverless-http";
-import app from "./src/app";
+import expressServer from "./src/expressServer";
 
-const handler = serverless(app);
+const handler = serverless(expressServer);
 exports.handler = async (
   event: APIGatewayProxyEvent | APIGatewayProxyEventV2,
   context: Context

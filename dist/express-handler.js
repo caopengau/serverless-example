@@ -13,8 +13,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const serverless_http_1 = __importDefault(require("serverless-http"));
-const app_1 = __importDefault(require("./src/app"));
-const handler = serverless_http_1.default(app_1.default);
+const expressServer_1 = __importDefault(require("./src/expressServer"));
+const handler = serverless_http_1.default(expressServer_1.default);
 exports.handler = (event, context) => __awaiter(void 0, void 0, void 0, function* () {
     // you can do other things here
     const result = yield handler(event, context);

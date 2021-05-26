@@ -18,18 +18,21 @@
     "express": "^4.17.1",
     "graphql": "^15.5.0",
     "graphql-playground-middleware-lambda": "^1.7.23",
+    "mongodb": "^3.6.8",
     "reflect-metadata": "^0.1.13",
     "serverless-http": "^2.7.0",
-    "type-graphql": "^1.1.1"
+    "type-graphql": "^1.1.1",
+    "typedi": "^0.10.0"
   },
   "devDependencies": {
     "@types/express": "^4.17.11",
+    "@types/mongodb": "^3.6.16",
     "@typescript-eslint/eslint-plugin": "^4.25.0",
     "@typescript-eslint/parser": "^4.25.0",
     "husky": "^6.0.0",
     "npm-check-updates": "^11.5.13",
     "prettier": "^2.3.0",
-    "serverless": "^2.43.0",
+    "serverless": "^2.43.1",
     "serverless-offline": "^7.0.0",
     "tsc-watch": "^4.2.9",
     "typescript": "^4.2.4"

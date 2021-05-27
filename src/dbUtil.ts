@@ -6,10 +6,13 @@ export const contextDb = async (context: unknown) => {
   try {
     Container.get("db");
   } catch (error) {
-    const mongoClient = new MongoClient("mongodb://localhost:27777/devdb", {
-      useNewUrlParser: true,
-      useUnifiedTopology: true
-    });
+    const mongoClient = new MongoClient(
+      process.env.MONGO_URL || "mongodb://localhost:27777/devdb",
+      {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+      }
+    );
     await mongoClient.connect();
     Container.set("db", mongoClient.db());
   }

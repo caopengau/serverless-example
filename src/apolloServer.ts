@@ -3,6 +3,8 @@ import { buildSchemaSync } from "type-graphql";
 import { PostResolver } from "./resolver/post.resolver";
 import { Container } from "typedi";
 import { contextDb } from "./dbUtil";
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+require("dotenv").config();
 
 const schema = buildSchemaSync({
   resolvers: [PostResolver],

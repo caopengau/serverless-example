@@ -36,7 +36,7 @@ jobs:
       #- name: Build assets
       #  run: npm run assets-dev
       - name: Deploy Lambda functions
-        run: serverless deploy -s dev
+        run: serverless deploy
     # Optional (to use with serverless-finch serverless plugin)
     #- name: Deploy assets to S3
     #  run: serverless client deploy --no-delete-contents --no-confirm -s dev

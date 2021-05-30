@@ -7,7 +7,9 @@ export const contextDb = async (context: unknown) => {
     Container.get("db");
   } catch (error) {
     const mongoClient = new MongoClient(
-      process.env.MONGO_URL || "mongodb://localhost:27777/devdb",
+      process.env.NODE_ENV === "dev"
+        ? "mongodb://localhost:27777/devdb"
+        : process.env.MONGO_URL,
       {
         useNewUrlParser: true,
         useUnifiedTopology: true

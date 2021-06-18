@@ -1,5 +1,6 @@
 import { Collection, Db } from "mongodb";
 import Container, { Service } from "typedi";
+
 import { Post } from "./post.type";
 
 @Service()

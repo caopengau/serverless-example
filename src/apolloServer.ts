@@ -1,8 +1,9 @@
 import { ApolloServer } from "apollo-server-lambda";
 import { buildSchemaSync } from "type-graphql";
-import { PostResolver } from "./resolver/post.resolver";
 import { Container } from "typedi";
+
 import { contextDb } from "./dbUtil";
+import { PostResolver } from "./resolver/post.resolver";
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 require("dotenv").config();
 

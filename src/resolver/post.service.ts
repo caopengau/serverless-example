@@ -1,4 +1,5 @@
 import Container, { Service } from "typedi";
+
 import { PostRepo } from "./post.repo";
 import { Post } from "./post.type";
 

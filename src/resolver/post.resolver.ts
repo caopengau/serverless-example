@@ -1,5 +1,6 @@
 import { Query, Resolver } from "type-graphql";
 import Container, { Service } from "typedi";
+
 import { PostService } from "./post.service";
 import { Post } from "./post.type";
 
